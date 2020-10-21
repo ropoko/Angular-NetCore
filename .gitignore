@@ -1,0 +1,20 @@
+/frontend-backend/dist
+/frontend-backend/tmp
+/frontend-backend/out-tsc
+
+/api/.vscode
+/api/bin
+/api/obj
+
+# dependencies
+/frontend-backend/node_modules
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings

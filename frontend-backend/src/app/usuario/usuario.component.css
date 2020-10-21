@@ -1,0 +1,25 @@
+.mat-card-header {
+    display: unset;
+    text-align: center;
+}
+
+.table {
+    text-align: center;
+}
+
+.tbl2 {
+    background-color: white;
+    color: black;
+    width: 24%;
+}
+
+#btn1, #btn2 {
+   margin-right: 5px;
+   margin-left: 5px;
+}
+
+p {
+    color: yellowgreen;
+    font-weight: bold;
+    font-size: 20px;
+}

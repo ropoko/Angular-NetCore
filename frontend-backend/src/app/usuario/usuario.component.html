@@ -1,0 +1,91 @@
+<div class="container">
+    <mat-card>
+        <mat-card-header class="title">
+            <mat-card-title>CRUD - Usuários</mat-card-title>
+            <mat-card-subtitle>creat, read, update and delete!</mat-card-subtitle>
+        </mat-card-header>
+        <br><br>
+        <mat-card-content>
+            <form [formGroup]="userForm" [formControl]="userForm" (ngSubmit)="onFormSubmit()">
+                <table>
+                    <tr class="formRow">
+                        <td>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Nome </mat-label>
+                                <input matInput formControlName="Nome" placeholder="Seu nome">
+                            </mat-form-field>
+                            <mat-error>
+                                <span *ngIf="!userForm.get('Nome').value && userForm.get('Nome').touched"></span>
+                            </mat-error>
+                        </td>
+                        <td>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Senha </mat-label>
+                                <input matInput formControlName="Password" [type]="hide ?'password':'text'">
+                                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </mat-form-field>
+                            <mat-error>
+                                <span *ngIf="!userForm.get('Password').value && userForm.get('Password').touched"></span>
+                            </mat-error>
+                        </td>
+                        <td>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Email </mat-label>
+                                <input matInput formControlName="Email" placeholder="email@mail.com">
+                            </mat-form-field>
+                            <mat-error>
+                                <span *ngIf="!userForm.get('Email').value && userForm.get('Email').touched"></span>
+                            </mat-error>
+                        </td>
+                        <td>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Perfil </mat-label>
+                                <mat-select matInput formControlName="Role">
+                                    <mat-option value="ADMIN">Admin</mat-option>
+                                    <mat-option value="USER">User</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-error>
+                                <span *ngIf="!userForm.get('Role').value && userForm.get('Role').touched"></span>
+                            </mat-error>
+                        </td>
+
+                        <td id="buttons" class="content-center">
+                            <button id="btn1" type="submit" mat-raised-button color="primary"
+                                matTooltip="Cadastra o usuário" [disabled]="!userForm.valid">Enviar</button>
+                            <button id="btn2" type="reset" mat-raised-button color="accent"
+                                matTooltip="Limpar os campos" (click)="resetForm()">Limpar</button>
+                        </td>
+                    </tr>
+                </table>
+                <table class="table">
+                    <tr mat-header-row></tr>
+                    <tr ngclass="btn-primary">
+                        <th class="tbl2">ID</th>
+                        <th class="tbl2">Nome</th>
+                        <th class="tbl2">E-mail</th>
+                        <th class="tbl2">Perfil</th>
+                    </tr>
+                    <tr *ngFor="let user of allUsuarios | async">
+                        <td>{{user.idUsuario}}</td>
+                        <td>{{user.nome}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.role}}</td>
+                        <td>
+                            <button mat-icon-button type="button" color="accent" class="btn btn-info"
+                                matTooltip="Clique no botão para Editar" (click)="loadUsuarioToEdit(user.idUsuario)">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                        </td>
+                        <td>
+                            <button mat-icon-button type="button" color="warn" class="btn btn-danger"
+                                matTooltip="Clique no botão para Deletar" (click)="deleteUsuario(user.idUsuario)">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
