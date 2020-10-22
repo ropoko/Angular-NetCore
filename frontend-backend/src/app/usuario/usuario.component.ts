@@ -111,7 +111,7 @@ export class UsuarioComponent implements OnInit {
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Sim, exlcluir!'
+      confirmButtonText: 'Sim, excluir!'
     }).then((result) => {
       if (result.isConfirmed) {
         this.UsuarioService.deleteUsuarioById(Usuarioid).subscribe(() => {

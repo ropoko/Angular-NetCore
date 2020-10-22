@@ -5,6 +5,7 @@
 /api/.vscode
 /api/bin
 /api/obj
+/api/Migrations
 
 # dependencies
 /frontend-backend/node_modules
