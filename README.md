@@ -1,4 +1,4 @@
- ##About
+## About
 
 - ### :computer: Technologies
  - [.Net Core 3.1](https://dotnet.microsoft.com/)
