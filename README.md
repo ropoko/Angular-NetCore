@@ -1,5 +1,7 @@
 ## About
 
+Made to learn API concepts and its integration with an Angular interface.
+
 ### :computer: Technologies
  - [.Net Core 3.1](https://dotnet.microsoft.com/)
  - [Angular 10](https://angular.io/)
